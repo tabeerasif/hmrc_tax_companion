@@ -1,0 +1,1056 @@
+@use "govuk-frontend/dist/govuk" as * with (
+  $govuk-assets-path: "/assets/"
+);
+
+/*
+ * GOV.UK Frontend provides the standard typography, links, buttons,
+ * lists, tags, containers, focus states and footer styles.
+ *
+ * The styles below are specific to the Tax Companion prototype.
+ */
+
+html {
+  background: #eef1f3;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: #eef1f3;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.tax-companion-site {
+  width: min(1420px, calc(100% - 32px));
+  margin: 28px auto;
+  overflow: hidden;
+  background: govuk-colour("white");
+  border-radius: 8px;
+  box-shadow: 0 1px 10px rgba(11, 12, 12, 0.15);
+}
+
+/* Header */
+
+.tax-companion-header__top {
+  color: govuk-colour("white");
+  background: #1d70b8;
+  border-bottom: 4px solid #00a4b7;
+}
+
+.tax-companion-header__top-inner {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: govuk-spacing(4);
+}
+
+.tax-companion-brand {
+  display: inline-flex;
+  align-items: center;
+  color: govuk-colour("white");
+  text-decoration: none;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: govuk-colour("white");
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+  }
+
+  &:focus {
+    color: govuk-colour("black");
+    background: govuk-colour("yellow");
+    outline: 3px solid govuk-colour("yellow");
+    box-shadow: 0 4px 0 govuk-colour("black");
+    text-decoration: none;
+  }
+}
+
+.tax-companion-brand__icon {
+  display: block;
+  width: 280px;
+  height: 72px;
+  flex: none;
+  object-fit: cover;
+  object-position: center;
+  margin-left: -65px;
+}
+
+.tax-companion-crown {
+  width: 46px;
+  height: 37px;
+  flex: none;
+}
+
+.tax-companion-language-nav {
+  display: flex;
+  align-items: center;
+  gap: govuk-spacing(5);
+}
+
+.tax-companion-header-link {
+  color: govuk-colour("white");
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: govuk-colour("white");
+  }
+
+  &:focus {
+    color: govuk-colour("black");
+  }
+}
+
+/* Personal tax account navigation */
+
+.tax-companion-account-header {
+  background: govuk-colour("white");
+  border-bottom: 1px solid govuk-colour("mid-grey");
+}
+
+.tax-companion-account-title {
+  margin: 0;
+  padding-top: govuk-spacing(4);
+  padding-bottom: govuk-spacing(4);
+}
+
+.tax-companion-account-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: govuk-spacing(4);
+}
+
+.tax-companion-account-nav {
+  min-width: 200px;
+}
+
+.tax-companion-account-nav__list {
+  display: flex;
+  align-items: flex-end;
+  gap: govuk-spacing(5);
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+  li {
+    flex: none;
+    margin: 0;
+  }
+
+  a {
+    display: block;
+    padding-bottom: govuk-spacing(3);
+    white-space: nowrap;
+  }
+}
+
+.tax-companion-account-nav__current {
+  color: govuk-colour("black");
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 5px solid govuk-colour("blue");
+
+  &:link,
+  &:visited {
+    color: govuk-colour("black");
+  }
+}
+
+.tax-companion-message-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: govuk-spacing(2);
+}
+
+.tax-companion-notification {
+  display: inline-grid;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 5px;
+  place-items: center;
+  color: govuk-colour("white");
+  background: govuk-colour("red");
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.tax-companion-language-short {
+  flex: none;
+  padding-bottom: govuk-spacing(3);
+  font-family: $govuk-font-family;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tax-companion-menu-button {
+  display: none;
+}
+
+/* Main page heading */
+
+.tax-companion-main {
+  padding-top: govuk-spacing(7);
+  padding-bottom: govuk-spacing(6);
+}
+
+.tax-companion-page-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: govuk-spacing(5);
+  margin-bottom: govuk-spacing(5);
+}
+
+.tax-companion-title-row {
+  display: flex;
+  align-items: center;
+  gap: govuk-spacing(3);
+  flex-wrap: wrap;
+}
+
+.tax-companion-page-title {
+  margin-bottom: 0;
+}
+
+.tax-companion-lead {
+  max-width: 780px;
+  margin-top: govuk-spacing(2);
+  margin-bottom: 0;
+}
+
+.tax-companion-about-link {
+  flex: none;
+  margin-top: govuk-spacing(3);
+}
+
+/* Mode cards */
+
+.tax-companion-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: govuk-spacing(5);
+}
+
+.tax-companion-mode-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: govuk-spacing(6);
+  border-radius: 3px;
+}
+
+.tax-companion-mode-card--information {
+  background: #eef4ff;
+}
+
+.tax-companion-mode-card--journey {
+  background: #def9f5;
+}
+
+.tax-companion-mode-card__summary {
+  position: relative;
+}
+.tax-companion-mode-icon {
+  display: grid;
+  width: 116px;
+  height: 116px;
+  margin-bottom: govuk-spacing(2);
+  place-items: center;
+  border-radius: 50%;
+}
+
+.tax-companion-mode-card--information .tax-companion-mode-icon {
+  color: #1268bd;
+  background: #d5e9fa;
+}
+
+.tax-companion-mode-card--journey .tax-companion-mode-icon {
+  color: #00756a;
+  background: #cbeee3;
+}
+
+.tax-companion-mode-icon__svg {
+  width: 72px;
+  height: 72px;
+}
+
+.tax-companion-mode-card__title {
+  margin-bottom: govuk-spacing(1);
+}
+
+.tax-companion-mode-card__description {
+  min-height: 96px;
+  margin-bottom: govuk-spacing(4);
+}
+
+.tax-companion-mode-card__summary > .tax-companion-chevron {
+  display: none;
+}
+
+.tax-companion-mode-card__details {
+  flex: 1;
+  padding-top: govuk-spacing(4);
+  border-top: 1px solid #b7c8ce;
+
+  .govuk-heading-s {
+    margin-bottom: govuk-spacing(2);
+  }
+
+  .govuk-list {
+    margin-bottom: govuk-spacing(5);
+  }
+}
+
+/* Mode buttons */
+
+.tax-companion-mode-button {
+  display: flex;
+  width: 100%;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: govuk-spacing(3) govuk-spacing(4);
+  font-size: 22px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.tax-companion-mode-button--information {
+  background: #066bc4;
+  box-shadow: 0 2px 0 #003078;
+
+  &:link,
+  &:visited {
+    background: #066bc4;
+  }
+
+  &:hover {
+    background: #005a9f;
+  }
+  &:active {
+    background: #003f73;
+  }
+}
+
+.tax-companion-mode-button--journey {
+  background: #00766d;
+  box-shadow: 0 2px 0 #004b45;
+
+  &:link,
+  &:visited {
+    background: #00766d;
+  }
+
+  &:hover {
+    background: #005f57;
+  }
+
+  &:active {
+    background: #004b45;
+  }
+}
+
+.tax-companion-mode-button:focus {
+  color: govuk-colour("black");
+  background: govuk-colour("yellow");
+}
+
+.tax-companion-chevron {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 0.6;
+}
+
+/* Help panel */
+
+.tax-companion-help-panel {
+  display: flex;
+  align-items: center;
+  gap: govuk-spacing(5);
+  margin-top: govuk-spacing(5);
+  padding: govuk-spacing(5);
+  background: govuk-colour("light-grey");
+}
+
+.tax-companion-info-icon {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  flex: none;
+  place-items: center;
+  color: govuk-colour("white");
+  background: govuk-colour("black");
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tax-companion-help-panel__title {
+  margin-bottom: govuk-spacing(1);
+}
+
+.tax-companion-help-panel__body {
+  margin-bottom: 0;
+}
+
+/* Footer */
+
+.tax-companion-footer {
+  padding-top: govuk-spacing(5);
+  padding-bottom: govuk-spacing(5);
+}
+
+.tax-companion-footer__inner {
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  gap: govuk-spacing(5);
+}
+
+.tax-companion-footer .govuk-footer__inline-list {
+  margin-bottom: 0;
+}
+
+.tax-companion-hmrc-mark {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: govuk-spacing(2);
+  font-family: $govuk-font-family;
+  font-weight: 700;
+}
+
+.tax-companion-crown--small {
+  width: 52px;
+  height: 42px;
+  padding-right: govuk-spacing(2);
+  color: govuk-colour("black");
+  border-right: 2px solid #00756a;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .tax-companion-site {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .tax-companion-account-nav__list {
+    gap: govuk-spacing(4);
+  }
+
+  .tax-companion-language-short {
+    display: none;
+  }
+
+  .tax-companion-page-heading {
+    display: block;
+  }
+
+  .tax-companion-about-link {
+    display: inline-block;
+    margin-top: govuk-spacing(3);
+  }
+
+  .tax-companion-mode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tax-companion-mode-card__description {
+    min-height: 0;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .tax-companion-header__top-inner {
+    min-height: 62px;
+  }
+
+  .tax-companion-brand {
+    .tax-companion-brand__icon {
+      width: 210px;
+      height: 56px;
+    }
+  }
+
+  .tax-companion-language-nav {
+    gap: govuk-spacing(3);
+  }
+
+  .tax-companion-language-nav a:not(:last-child) {
+    display: none;
+  }
+
+  .tax-companion-account-title {
+    padding-bottom: govuk-spacing(2);
+  }
+
+  .tax-companion-menu-button {
+    display: inline-block;
+    margin-bottom: govuk-spacing(3);
+  }
+
+  .tax-companion-account-nav {
+    display: none;
+  }
+
+  .tax-companion-main {
+    padding-top: govuk-spacing(5);
+  }
+
+  .tax-companion-mode-grid {
+    gap: govuk-spacing(3);
+  }
+
+  .tax-companion-mode-card {
+    padding: govuk-spacing(4);
+  }
+
+  .tax-companion-mode-card__summary {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr) 20px;
+    align-items: center;
+    gap: govuk-spacing(3);
+  }
+
+  .tax-companion-mode-icon {
+    width: 82px;
+    height: 82px;
+    margin: 0;
+  }
+
+  .tax-companion-mode-icon__svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  .tax-companion-mode-card__title {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  .tax-companion-mode-card__description {
+    margin: govuk-spacing(1) 0 0;
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .tax-companion-mode-card__summary > .tax-companion-chevron {
+    display: block;
+    color: #0879a8;
+  }
+
+  .tax-companion-mode-card__details {
+    margin-top: govuk-spacing(3);
+    padding-top: govuk-spacing(3);
+
+    .govuk-list {
+      margin-bottom: 0;
+    }
+  }
+
+  .tax-companion-mode-button {
+    min-height: 54px;
+    margin-top: govuk-spacing(4);
+    font-size: 18px;
+  }
+
+  .tax-companion-help-panel {
+    align-items: flex-start;
+    gap: govuk-spacing(3);
+    padding: govuk-spacing(4);
+  }
+
+  .tax-companion-info-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 29px;
+  }
+
+  .tax-companion-footer__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tax-companion-hmrc-mark {
+    align-self: flex-end;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   Information Mode
+   ========================================================= */
+
+.information-mode-main {
+  padding-top: govuk-spacing(7);
+  padding-bottom: govuk-spacing(7);
+}
+
+.information-mode-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: govuk-spacing(5);
+  margin-bottom: govuk-spacing(4);
+}
+
+.information-mode-lead {
+  margin-top: govuk-spacing(2);
+  margin-bottom: 0;
+}
+
+.information-mode-about-link {
+  flex: none;
+  margin-top: govuk-spacing(3);
+}
+
+/* Mode switcher */
+
+.information-mode-switcher {
+  display: grid;
+  max-width: 540px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: govuk-spacing(4);
+  padding: 3px;
+  background: govuk-colour("light-grey");
+  border: 1px solid govuk-colour("mid-grey");
+  border-radius: 4px;
+}
+
+.information-mode-switcher__option {
+  padding: govuk-spacing(2) govuk-spacing(4);
+  color: govuk-colour("black");
+  font-family: $govuk-font-family;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: govuk-colour("black");
+  }
+
+  &:hover {
+    color: govuk-colour("dark-blue");
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+  }
+
+  &:focus {
+    color: govuk-colour("black");
+    background: govuk-colour("yellow");
+    outline: 3px solid govuk-colour("yellow");
+    box-shadow: 0 4px 0 govuk-colour("black");
+    text-decoration: none;
+  }
+}
+
+.information-mode-switcher__option--current {
+  color: govuk-colour("white");
+  background: govuk-colour("blue");
+
+  &:link,
+  &:visited,
+  &:hover {
+    color: govuk-colour("white");
+  }
+
+  &:hover {
+    background: govuk-colour("dark-blue");
+  }
+
+  &:focus {
+    color: govuk-colour("black");
+    background: govuk-colour("yellow");
+  }
+}
+
+/* Page layout */
+
+.information-mode-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(260px, 0.85fr);
+  gap: govuk-spacing(5);
+  align-items: start;
+}
+
+.information-mode-primary {
+  min-width: 0;
+}
+
+/* Information Mode status */
+
+.information-mode-status {
+  display: flex;
+  align-items: center;
+  gap: govuk-spacing(4);
+  margin-bottom: govuk-spacing(4);
+  padding: govuk-spacing(4);
+  color: govuk-colour("dark-blue");
+  background: #e8f1f8;
+  border-left: 5px solid govuk-colour("blue");
+}
+
+.information-mode-icon {
+  width: 52px;
+  height: 52px;
+  flex: none;
+}
+
+.information-mode-status__title {
+  margin-bottom: govuk-spacing(1);
+  color: govuk-colour("dark-blue");
+}
+
+.information-mode-status__text {
+  margin-bottom: 0;
+}
+
+/* Chat container */
+
+.information-mode-chat {
+  overflow: hidden;
+  background: govuk-colour("white");
+  border: 1px solid govuk-colour("mid-grey");
+}
+
+.information-mode-chat__messages {
+  min-height: 370px;
+  padding: govuk-spacing(5);
+}
+
+/* Conversation messages */
+
+.information-mode-message {
+  display: flex;
+  max-width: 780px;
+  align-items: flex-start;
+  gap: govuk-spacing(3);
+  margin-bottom: govuk-spacing(5);
+}
+
+.information-mode-message--user {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.information-mode-message__avatar {
+  width: 60px;
+  flex: none;
+  color: #004b45;
+}
+
+.information-mode-assistant-icon {
+  display: block;
+  width: 58px;
+  height: 58px;
+}
+
+.information-mode-message__bubble {
+  max-width: 680px;
+  padding: govuk-spacing(4);
+  background: govuk-colour("light-grey");
+  border-left: 5px solid govuk-colour("blue");
+
+  .govuk-body:last-child,
+  .govuk-body-s:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.information-mode-message--user .information-mode-message__bubble {
+  background: #e8f1f8;
+  border-left: 0;
+  border-right: 5px solid govuk-colour("blue");
+}
+
+.information-mode-message__heading {
+  margin-bottom: govuk-spacing(2);
+  font-weight: 700;
+}
+
+.information-mode-message__supporting {
+  color: govuk-colour("dark-grey");
+}
+
+/* Message composer */
+
+.information-mode-composer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 54px 54px 64px;
+  gap: 0;
+  align-items: stretch;
+  padding: govuk-spacing(3);
+  background: govuk-colour("light-grey");
+  border-top: 1px solid govuk-colour("mid-grey");
+}
+
+.information-mode-composer__input {
+  min-width: 0;
+}
+
+.information-mode-textarea {
+  display: block;
+  min-height: 58px;
+  margin: 0;
+  resize: vertical;
+  background: govuk-colour("white");
+}
+
+.information-mode-icon-button {
+  display: grid;
+  width: 54px;
+  min-height: 58px;
+  place-items: center;
+  color: govuk-colour("black");
+  background: govuk-colour("white");
+  border: 2px solid govuk-colour("mid-grey");
+  border-left: 0;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: govuk-colour("black");
+  }
+
+  &:hover {
+    background: #e8f1f8;
+  }
+
+  &:focus {
+    position: relative;
+    z-index: 2;
+    color: govuk-colour("black");
+    background: govuk-colour("yellow");
+    outline: 3px solid govuk-colour("yellow");
+    box-shadow: 0 4px 0 govuk-colour("black");
+  }
+}
+
+.information-mode-action-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.information-mode-send-button {
+  display: grid;
+  min-width: 64px;
+  min-height: 58px;
+  margin: 0;
+  padding: govuk-spacing(2);
+  place-items: center;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.information-mode-send-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Right-hand panels */
+
+.information-mode-sidebar {
+  min-width: 0;
+}
+
+.information-mode-details {
+  margin-bottom: govuk-spacing(3);
+  padding: govuk-spacing(3);
+  background: govuk-colour("light-grey");
+  border-left: 4px solid govuk-colour("blue");
+
+  .govuk-details__summary {
+    margin-bottom: 0;
+    font-weight: 700;
+  }
+
+  &[open] .govuk-details__summary {
+    margin-bottom: govuk-spacing(3);
+  }
+
+  .govuk-details__text {
+    padding-bottom: 0;
+  }
+}
+
+.information-mode-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: govuk-spacing(3);
+  margin-top: govuk-spacing(4);
+  padding: govuk-spacing(4);
+  background: govuk-colour("light-grey");
+}
+
+.information-mode-warning__icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  place-items: center;
+  color: govuk-colour("white");
+  background: govuk-colour("black");
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.information-mode-status .information-mode-warning__icon {
+  background: govuk-colour("blue");
+}
+
+.information-mode-warning__title {
+  margin-bottom: govuk-spacing(1);
+}
+
+.information-mode-warning__text {
+  margin-bottom: 0;
+}
+
+/* Temporary crown replacement */
+
+.tax-companion-brand__crown {
+  font-family: Georgia, serif;
+  font-size: 38px;
+  line-height: 1;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .information-mode-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .information-mode-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: govuk-spacing(3);
+  }
+
+  .information-mode-warning {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .information-mode-main {
+    padding-top: govuk-spacing(5);
+  }
+
+  .information-mode-heading {
+    display: block;
+  }
+
+  .information-mode-about-link {
+    display: inline-block;
+    margin-top: govuk-spacing(3);
+  }
+
+  .information-mode-switcher {
+    max-width: none;
+  }
+
+  .information-mode-switcher__option {
+    padding: govuk-spacing(2);
+    font-size: 16px;
+  }
+
+  .information-mode-status {
+    align-items: flex-start;
+    gap: govuk-spacing(3);
+    padding: govuk-spacing(3);
+  }
+
+  .information-mode-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .information-mode-chat__messages {
+    min-height: 300px;
+    padding: govuk-spacing(3);
+  }
+
+  .information-mode-message {
+    gap: govuk-spacing(2);
+  }
+
+  .information-mode-message__avatar {
+    width: 44px;
+  }
+
+  .information-mode-assistant-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .information-mode-message__bubble {
+    padding: govuk-spacing(3);
+  }
+
+  .information-mode-composer {
+    grid-template-columns: minmax(0, 1fr) 50px 50px 56px;
+    padding: govuk-spacing(2);
+  }
+
+  .information-mode-icon-button {
+    width: 50px;
+  }
+
+  .information-mode-send-button {
+    min-width: 56px;
+  }
+
+  .information-mode-sidebar {
+    display: block;
+  }
+
+  .information-mode-warning {
+    margin-top: govuk-spacing(4);
+  }
+}
